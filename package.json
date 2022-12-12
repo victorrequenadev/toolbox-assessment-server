@@ -1,0 +1,27 @@
+{
+  "name": "toolbox-assessment-server",
+  "version": "1.0.0",
+  "description": "Toolbox's technical assestment back end",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "prepare": "husky install"
+  },
+  "type": "module",
+  "author": "Victor Requena",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.29.0",
+    "eslint-config-prettier": "^8.5.0",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.1.0",
+    "prettier": "2.8.1"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
+  }
+}
