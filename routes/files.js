@@ -46,4 +46,21 @@ router.get("/data", async (req, res) => {
   }
 });
 
+router.get("/list", async (req, res) => {
+  try {
+    const { data } = await apiInstance.get("/secret/files", {
+      headers: HEADERS,
+    });
+
+    res.json(data);
+  } catch ({ response }) {
+    res.status(502);
+    if (response?.data) {
+      res.json(createErrorObject(response.data.code, response.data.message));
+    } else {
+      res.json(createErrorObject("API-500", "Server error"));
+    }
+  }
+});
+
 export { router as filesRouter };
